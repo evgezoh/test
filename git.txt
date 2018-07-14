@@ -1,0 +1,14 @@
+create repositore in git
+git clone
+
+git add .
+git status
+git commit -m ""
+git push
+
+
+delete
+
+git rm file
+git commit -m ""
+git push
