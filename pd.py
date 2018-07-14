@@ -20,3 +20,8 @@ print(data[dat['column'].isin(dat1['column'])])
 
 data['avr'] = data['small'] + data1['big']
 print(data)
+
+a = pd.DataFrame(list(range(len(data['small']))), columns=['random'])
+
+a[ (a['random'] > 5) & (a['random'] < 100) ] = value
+# a[a['random'] % 2 == 1] = list(range(len(a[a['random'] % 2 == 1])))
