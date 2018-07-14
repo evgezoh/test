@@ -17,3 +17,6 @@ print(data.rename({'small': 'Small'}, axis=1))
 print(data)
 
 print(data[dat['column'].isin(dat1['column'])])
+
+data['avr'] = data['small'] + data1['big']
+print(data)
