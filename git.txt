@@ -1,4 +1,4 @@
-create repositore in git
+create repository in git
 git clone
 
 git add .
