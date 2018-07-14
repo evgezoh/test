@@ -15,3 +15,5 @@ print(data.join(data1))
 print(data.rename({'small': 'Small'}, axis=1))
 
 print(data)
+
+print(data[dat['column'].isin(dat1['column'])])
