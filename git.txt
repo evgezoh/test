@@ -14,5 +14,8 @@ git commit -m ""
 git push
 
 git pull - получить тот же набор файлов, что и на git
+git fetch - получить набор файлов которого не достает (проверить)
 git remote - список настроенных удаленных серверов
 git remote -v - список с именами и адресами
+
+git remote add pb(имя любое) git://github.com/paulboone/ticgit.git(адрес проекта) - добавить удаленный репозиторий
