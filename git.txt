@@ -12,3 +12,5 @@ delete
 git rm file
 git commit -m ""
 git push
+
+git pull - получить тот же набор файлов, что и на git
