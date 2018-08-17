@@ -23,7 +23,9 @@ print(data)
 
 a = pd.DataFrame(list(range(len(data['small']))), columns=['random'])
 
-a[ (a['random'] > 5) & (a['random'] < 100) ] = value
+a[ (a['random'] > 5) & (a['random'] < 100) ] = value # для всех столбцов
+data.loc[data['small'] == 'a', 'small'] = 'A' # для столбца small
+
 # a[a['random'] % 2 == 1] = list(range(len(a[a['random'] % 2 == 1])))
 
 data1 = pd.read_excel("data.xlsx", sheetname='Лист4')
