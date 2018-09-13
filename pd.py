@@ -31,3 +31,5 @@ data.loc[data['small'] == 'a', 'small'] = 'A' # для столбца small
 data1 = pd.read_excel("data.xlsx", sheetname='Лист4')
 
 print(data1.groupby(['ID', 'col']).sum())
+
+data.loc[data['small'] == 'a', 'small'] = 'A'
