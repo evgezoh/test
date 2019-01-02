@@ -40,34 +40,34 @@ import time
 
 
 
-data = pd.read_excel("data.xlsx", sheet_name='teacher')
-
-print(data.ix[: 10, :3])
-
-print(data.iloc[: 5, : 3])
-
-print(data.loc[:, ['ID', 'square']])
-
-df = data.ix[:, -3:]
-
-std_bus_stop = df.groupby('bus_stop')['neg_factor', 'opsum'].std()
-
-std_bus_stop.rename(columns={'neg_factor': 'std_neg', 'opsum': 'std_opsum'}, inplace=True)
-
-print(std_bus_stop[~(std_bus_stop['std_opsum'] < 1500000)])
-
-print(std_bus_stop)
-
-std_bus_stop_merge = pd.merge(df, std_bus_stop, left_on='bus_stop', right_index=True)
-
-print(std_bus_stop_merge)
-
-print(std_bus_stop_merge[std_bus_stop_merge['opsum'] < std_bus_stop_merge['std_opsum']])
-
-df_eq = pd.DataFrame(data.groupby(['square', 'crossroad'])['opsum'].mean())
-df_eq.reset_index(inplace=True)
-
-df_eq.to_excel('out.xlsx', '1')
+# data = pd.read_excel("data.xlsx", sheet_name='teacher')
+#
+# print(data.ix[: 10, :3])
+#
+# print(data.iloc[: 5, : 3])
+#
+# print(data.loc[:, ['ID', 'square']])
+#
+# df = data.ix[:, -3:]
+#
+# std_bus_stop = df.groupby('bus_stop')['neg_factor', 'opsum'].std()
+#
+# std_bus_stop.rename(columns={'neg_factor': 'std_neg', 'opsum': 'std_opsum'}, inplace=True)
+#
+# print(std_bus_stop[~(std_bus_stop['std_opsum'] < 1500000)])
+#
+# print(std_bus_stop)
+#
+# std_bus_stop_merge = pd.merge(df, std_bus_stop, left_on='bus_stop', right_index=True)
+#
+# print(std_bus_stop_merge)
+#
+# print(std_bus_stop_merge[std_bus_stop_merge['opsum'] < std_bus_stop_merge['std_opsum']])
+#
+# df_eq = pd.DataFrame(data.groupby(['square', 'crossroad'])['opsum'].mean())
+# df_eq.reset_index(inplace=True)
+#
+# df_eq.to_excel('out.xlsx', '1')
 
 # print(pd.merge(data, df_eq, left_on='square', right_index=True))
 
@@ -77,30 +77,45 @@ df_eq.to_excel('out.xlsx', '1')
 
 ####### Multiprocessing ################
 
-# def f(a):
-#     for i in a:
-#         print(i)
-#         time.sleep(0.05)
-#     return a
-#
-#
-# if __name__ == '__main__':
-#
-#     a = list(range(1000000))
-#
-#     pool = Pool(processes=8)
-#
-#     prs = []
-#     pr = Process(target=f, args=(a[:len(a)//2], ))
-#     prs.append(pr)
-#     pr.start()
-#
-#     pr1 = Process(target=f, args=(a[len(a)//2 :], ))
-#     prs.append(pr1)
-#     pr1.start()
+def f(a):
+    for i in a:
+        print(i)
+        time.sleep(0.05)
+    return a
 
-    # result = pool.apply_async(func=f, args=(a, ))
-    # print(result.get())
+
+if __name__ == '__main__':
+
+    a = list(range(1000))
+
+    # pool = Pool(processes=8)
+
+    prs = []
+    for i in range(2):
+        if not i:
+            pr = Process(target=f, args=(a[:len(a)//2], ))
+            prs.append(pr)
+            pr.start()
+        else:
+            pr = Process(target=f, args=(a[len(a)//2:], ))
+            prs.append(pr)
+            pr.start()
+
+    for i in range(2):
+        prs[i].join()
+
+    # Доделать
+
+
+
+    # apply_async
+    # res = []
+    # res.append(pool.apply_async(func=f, args=(a[: len(a) // 2], )))
+    # res.append(pool.apply_async(func=f, args=(a[len(a) // 2:], )))
+    #
+    # for i in range(len(res)):
+    #     print(res[i].get())
+
 
 
 
