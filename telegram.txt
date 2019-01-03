@@ -1,4 +1,4 @@
-# Повторяет все сообщения
+# Повторяет все сообщения (бот)
 import config
 import telebot
 
@@ -12,3 +12,18 @@ def repeat_all_messages(message):
 
 if __name__ == '__main__':
     bot.polling(none_stop=True)
+
+
+# Показывает инфу в формате json о чате и пишет сообщения (бот)
+import config
+import telebot
+import requests
+import telethon
+
+response = requests.get('https://api.telegram.org/bot' + config.token + '/getUpdates')
+
+print(response.json())
+
+bot = telebot.TeleBot(config.token)
+
+bot.send_message(config.chat_id, 'message')
