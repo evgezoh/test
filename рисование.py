@@ -1,6 +1,7 @@
 from sklearn.manifold import TSNE
 from sklearn.preprocessing import StandardScaler, MinMaxScaler, MaxAbsScaler
 import pandas as pd
+import numpy as np
 import plotly
 import matplotlib.pyplot as plt
 import seaborn as sns
@@ -80,3 +81,42 @@ import seaborn as sns
 #
 # data = data.groupby('square').mean()
 # plt.show(data.plot())
+
+
+#############################################################################
+# x = np.linspace(-10, 10, 100)
+# plt.figure()
+# plt.subplot(1, 2, 1)
+# plt.plot(x, np.sin(x), 'p', color='g', label='sin(x)', linestyle='solid', markerfacecolor='white', markeredgecolor='pink')
+# plt.plot(x, np.cos(x))
+# plt.legend()
+# plt.title('SIN')
+# # plt.xlim(-10, 10)
+# # plt.ylim(-2, 2)
+# # plt.axis('tight')
+# # plt.axis('equal')
+# # plt.axis([-10, 10, -2, 2])
+# plt.show()
+#############################################################################
+
+# rnd = np.random.RandomState(0)
+# x = rnd.rand(100)
+# y = rnd.rand(100)
+#
+# colors = rnd.rand(100)
+# size = rnd.rand(100) * 1000
+#
+# plt.scatter(x, y, c=colors, s=size, alpha=0.3, cmap='viridis')
+# plt.colorbar()
+# plt.show()
+
+#############################################################################
+
+# rnd = np.random.RandomState(0)
+# x = rnd.rand(100)
+# y = rnd.rand(100)
+#
+# plt.errorbar(x, y, yerr=0.1, fmt='.')
+# plt.show()
+
+#############################################################################
