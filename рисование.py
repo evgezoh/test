@@ -43,12 +43,14 @@ import seaborn as sns
 # plt.show(sales_df.groupby('Year_of_Release').sum().plot(kind='bar', rot=45))
 
 
-# distplot save
+# pairplot save
 # cols = ['Global_Sales', 'Critic_Score', 'Critic_Count', 'User_Score', 'User_Count']
 # sns_plot = sns.pairplot(df[cols])
 # plt.show(sns_plot)
 # sns_plot.savefig('pairplot.png')
 
+
+# distplot
 # plt.show(sns.distplot(df.Critic_Score))
 
 
@@ -88,8 +90,10 @@ import seaborn as sns
 # plt.figure()
 # plt.subplot(1, 2, 1)
 # plt.plot(x, np.sin(x), 'p', color='g', label='sin(x)', linestyle='solid', markerfacecolor='white', markeredgecolor='pink')
-# plt.plot(x, np.cos(x))
-# plt.legend()
+# plt.plot(x, np.cos(x), label='cos(x)')
+# plt.xlabel('x')
+# plt.ylabel('sin cos')
+# plt.legend(loc='upper right', shadow=True, fancybox=True, framealpha=0.5, borderpad=1)
 # plt.title('SIN')
 # # plt.xlim(-10, 10)
 # # plt.ylim(-2, 2)
@@ -118,5 +122,32 @@ import seaborn as sns
 #
 # plt.errorbar(x, y, yerr=0.1, fmt='.')
 # plt.show()
+
+#############################################################################
+
+# rnd = np.random.RandomState(0)
+# x = np.random.normal(0, 5, 1000)
+# y = np.random.normal(-5, 10, 100)
+# z = np.random.normal(-1, 10, 100)
+#
+# kwargs = dict(bins=30, normed=True, color='blue', edgecolor='black', alpha=0.5)
+#
+# plt.hist(x, **kwargs)
+# plt.hist(y, **kwargs)
+# plt.hist(z, **kwargs)
+# plt.show()
+
+#############################################################################
+
+# import seaborn as sns
+#
+# rnd = np.random.RandomState(0)
+#
+# x = rnd.rand(100)
+# y = rnd.rand(100)
+#
+# plt.show(sns.jointplot(x, y, kind='kde'))
+# plt.show(sns.jointplot(x, y, kind='hex'))
+# plt.show(sns.jointplot(x, y, kind='reg'))
 
 #############################################################################
