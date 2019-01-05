@@ -27,3 +27,28 @@ print(response.json())
 bot = telebot.TeleBot(config.token)
 
 bot.send_message(config.chat_id, 'message')
+
+
+# Коннект к телеграмму
+from telethon import TelegramClient # версия telethon 0.19
+import python_telegram_auth
+import config
+
+
+api_id = config.app_api_id
+api_hash = config.app_hash_id
+
+client = TelegramClient(config.phone, api_id=api_id, api_hash=api_hash)
+# client.session.report_errors = False
+
+client.connect()
+
+if not client.is_user_authorized():
+    client.send_code_request(phone)
+    try:
+        client.sign_in(phone, input('Enter the code: '))
+    except SessionPasswordNeededError:
+        client.sign_in(password=input('Password: '))
+
+me = client.get_me()
+print(me)
