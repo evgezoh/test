@@ -91,6 +91,14 @@ import seaborn as sns
 # plt.subplot(1, 2, 1)
 # plt.plot(x, np.sin(x), 'p', color='g', label='sin(x)', linestyle='solid', markerfacecolor='white', markeredgecolor='pink')
 # plt.plot(x, np.cos(x), label='cos(x)')
+# plt.text(0, 0, 'sin')
+#
+# plt.annotate('text', xy=(0, 0), xycoords='data',
+#              xytext=(-80, -40), textcoords='offset points',
+#              arrowprops=dict(arrowstyle='fancy',
+#                              fc='0.6', ec='none',
+#                              connectionstyle='angle3, angleA=0, angleB=-90'))
+#
 # plt.xlabel('x')
 # plt.ylabel('sin cos')
 # plt.legend(loc='upper right', shadow=True, fancybox=True, framealpha=0.5, borderpad=1)
