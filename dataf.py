@@ -106,7 +106,7 @@ if __name__ == '__main__':
     # Доделать
 
 
-
+    # Работает
     # apply_async
     # res = []
     # res.append(pool.apply_async(func=f, args=(a[: len(a) // 2], )))
