@@ -115,8 +115,10 @@ if __name__ == '__main__':
     # for i in range(len(res)):
     #     print(res[i].get())
 
-
-
+# data = pd.read_excel("data.xlsx", sheet_name='teacher')
+# print(data)
+#
+# print(data.square.quantile([0.25, 0.5, 0.75]))
 
 
 
