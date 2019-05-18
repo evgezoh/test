@@ -71,38 +71,41 @@ import time
 
 # print(pd.merge(data, df_eq, left_on='square', right_index=True))
 
-
+# data = pd.read_excel("data.xlsx", sheet_name='teacher')
+# print(data)
+#
+# print(data.square.quantile([0.25, 0.5, 0.75])) split
 
 
 
 ####### Multiprocessing ################
 
-def f(a):
-    for i in a:
-        print(i)
-        time.sleep(0.05)
-    return a
-
-
-if __name__ == '__main__':
-
-    a = list(range(1000))
-
-    # pool = Pool(processes=8)
-
-    prs = []
-    for i in range(2):
-        if not i:
-            pr = Process(target=f, args=(a[:len(a)//2], ))
-            prs.append(pr)
-            pr.start()
-        else:
-            pr = Process(target=f, args=(a[len(a)//2:], ))
-            prs.append(pr)
-            pr.start()
-
-    for i in range(2):
-        prs[i].join()
+# def f(a):
+#     for i in a:
+#         print(i)
+#         time.sleep(0.05)
+#     return a
+#
+#
+# if __name__ == '__main__':
+#
+#     a = list(range(1000))
+#
+#     # pool = Pool(processes=8)
+#
+#     prs = []
+#     for i in range(2):
+#         if not i:
+#             pr = Process(target=f, args=(a[:len(a)//2], ))
+#             prs.append(pr)
+#             pr.start()
+#         else:
+#             pr = Process(target=f, args=(a[len(a)//2:], ))
+#             prs.append(pr)
+#             pr.start()
+#
+#     for i in range(2):
+#         prs[i].join()
     # Доделать
 
 
@@ -114,24 +117,6 @@ if __name__ == '__main__':
     #
     # for i in range(len(res)):
     #     print(res[i].get())
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
