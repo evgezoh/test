@@ -76,6 +76,8 @@ import time
 #
 # print(data.square.quantile([0.25, 0.5, 0.75])) split
 
+# pd.DataFrame(zip(*[['A', 1.1, 1.2, 1.3], ['B', 2.1, 2.2, 2.3]])).to_excel('output.xlsx') транспонировать
+
 
 
 ####### Multiprocessing ################
